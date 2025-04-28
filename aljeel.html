@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aljeel mobiles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aljeel Mobiles - Buy the latest phones or get expert repair services in Dubai. Trusted service, genuine products, best deals.">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" type="image/svg+xml">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f6f9fb;
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 26px 6vw;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(60,90,120,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d47a1;
+            letter-spacing: 1px;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #1976d2;
+        }
+        .cart-icon {
+            font-size: 1.3rem;
+            margin-left: 1.7rem;
+            color: #1976d2;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 64px 10vw 24px 10vw;
+            background: linear-gradient(120deg, #e3f0ff 60%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 2.7rem;
+            max-width: 660px;
+            text-align: center;
+            font-weight: 800;
+            color: #0d47a1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            animation: fadeup 1s .2s both;
+        }
+        .hero p {
+            font-size: 1.23rem;
+            color: #444;
+            margin-bottom: 36px;
+            text-align: center;
+            animation: fadeup 1s .5s both;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 60px;
+            animation: fadeup 1s .8s both;
+        }
+        .hero-btns a {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            background: #1976d2;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10);
+            transition: background 0.2s, transform .16s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-btns a:nth-child(2) {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+        }
+        .hero-btns a:hover {
+            background: #004ba0;
+            color: #fff;
+            transform: translateY(-3px) scale(1.04);
+        }
+        .hero-btns a:nth-child(2):hover {
+            background: #1976d2;
+            color: #fff;
+        }
+        @keyframes fadeup {
+            from { opacity: 0; transform: translateY(30px);}
+            to   { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Brand Logos */
+        .brands {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            margin: 20px 0 0 0;
+            flex-wrap: wrap;
+        }
+        .brand-logo {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(0.5);
+            opacity: 0.75;
+            transition: transform .2s, filter .2s, opacity .2s;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);
+        }
+        .brand-logo:hover {
+            filter: none;
+            opacity: 1;
+            transform: scale(1.16) rotate(-2deg);
+        }
+        .brand-logo img {
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .brand-logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Services Section */
+        .services-section {
+            max-width: 1110px;
+            margin: 52px auto 0 auto;
+            padding: 0 3vw;
+        }
+        .services-title {
+            font-size: 1.7rem;
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 28px;
+            text-align: center;
+            letter-spacing: .5px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 14px rgba(25, 118, 210, 0.07);
+            padding: 32px 20px 24px 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeup .95s both;
+            animation-delay: calc(.15s * var(--i));
+            opacity: 0;
+        }
+        .service-card.animated {
+            opacity: 1;
+        }
+        .service-icon {
+            font-size: 2.4rem;
+            color: #1976d2;
+            margin-bottom: 16px;
+        }
+        .service-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+        .service-desc {
+            font-size: 0.97rem;
+            color: #555;
+        }
+
+        /* Pop-up Offer */
+        .popup-offer {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            background: #ecf6ff;
+            color: #1976d2;
+            padding: 22px 36px 22px 48px;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(25,118,210,0.13);
+            font-size: 1.12rem;
+            font-weight: 600;
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: popupin .7s;
+        }
+        .popup-offer .close-offer {
+            background: none;
+            border: none;
+            font-size: 1.46rem;
+            color: #1976d2;
+            margin-left: 12px;
+            cursor: pointer;
+            transition: color .15s;
+        }
+        .popup-offer .close-offer:hover {
+            color: #222;
+        }
+        @keyframes popupin {
+            from { opacity: 0; transform: translateY(60px);}
+            to   { opacity: 1; transform: translateY(0);}
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            right: 24px;
+            bottom: 90px;
+            z-index: 99;
+            background: #25d366;
+            color: #fff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 2px 14px rgba(37,211,102,0.18);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .whatsapp-float:hover {
+            background: #128c7e;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            20% { transform: translateY(-8px);}
+            40% { transform: translateY(-16px);}
+            60% { transform: translateY(-8px);}
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            max-width: 900px;
+            margin: 56px auto 0 auto;
+            padding: 0 3vw;
+        }
+        .testimonials-title {
+            font-size: 1.35rem;
+            color: #1976d2;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 26px;
+        }
+        .testimonial-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .testimonial {
+            background: #fff;
+            border-radius: 13px;
+            box-shadow: 0 2px 12px rgba(25,118,210,0.07);
+            padding: 30px 44px 30px 44px;
+            text-align: center;
+            max-width: 430px;
+            min-height: 140px;
+            transition: opacity 0.4s;
+            opacity: 0;
+            position: absolute;
+        }
+        .testimonial.active {
+            opacity: 1;
+            position: relative;
+            animation: fadeup .7s both;
+        }
+        .testimonial .quote {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 14px;
+        }
+        .testimonial .author {
+            font-weight: 600;
+            color: #1976d2;
+            margin-top: 7px;
+            font-size: 1rem;
+        }
+        .testimonial .stars {
+            color: #fbc02d;
+            margin-bottom: 7px;
+        }
+        .testimonial-nav {
+            margin-top: 26px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .testimonial-dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #b3d0ec;
+            cursor: pointer;
+            transition: background 0.18s;
+        }
+        .testimonial-dot.active {
+            background: #1976d2;
+        }
+        /* Shop Section */
+        .shop-section {
+            max-width: 1110px;
+            margin: 54px auto 0 auto;
+            padding: 0 3vw 40px 3vw;
+        }
+        .shop-title {
+            font-size: 1.55rem;
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .shop-placeholder {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 14px rgba(25, 118, 210, 0.07);
+            padding: 30px;
+            text-align: center;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .map-container {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 14px rgba(25, 118, 210, 0.09);
+        }
+        .contact-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .shop-address {
+            margin-top: 16px;
+            font-size: 1.08rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #f3f8fd;
+            padding: 38px 0 18px 0;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0 5vw;
+            gap: 34px;
+        }
+        .footer-section {
+            min-width: 160px;
+        }
+        .footer-section h4 {
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+        }
+        .footer-links a {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.15s;
+        }
+        .footer-links a:hover {
+            color: #1976d2;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .footer-socials a {
+            font-size: 1.33rem;
+            color: #1976d2;
+            transition: color 0.15s;
+        }
+        .footer-socials a:hover{
+            color: #1565c0;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #888;
+            font-size: 0.99rem;
+            margin-top: 38px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            header { flex-direction: column; gap: 13px;}
+            .hero h1 { font-size: 1.7rem;}
+            .hero { padding: 44px 4vw 14px 4vw;}
+            .services-section { padding: 0 2vw;}
+            .testimonials-section { padding: 0 2vw;}
+            .footer-content { flex-direction: column; gap: 24px;}
+            .service-card { padding: 22px 9px 16px 9px;}
+            .testimonial { padding: 19px 9px 19px 9px;}
+            .brands { gap: 1.1rem;}
+            .shop-section { padding: 0 2vw 30px 2vw;}
+        }
+        /* Bottom Navbar for Mobile */
+        .bottom-navbar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 62px;
+            background: #fff;
+            border-top: 1px solid #e3eaf3;
+            box-shadow: 0 -2px 14px rgba(25, 118, 210, 0.05);
+            z-index: 120;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .bottom-navbar a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 0 0 0;
+            color: #1976d2;
+            font-size: 0.99rem;
+            font-weight: 500;
+            transition: background 0.17s, color 0.13s;
+        }
+        .bottom-navbar a svg {
+            margin-bottom: 2px;
+            display: block;
+        }
+        .bottom-navbar a span {
+            font-size: 0.81rem;
+            font-weight: 500;
+        }
+        .bottom-navbar a:hover,
+        .bottom-navbar a:active {
+            color: #004ba0;
+            background: #e3f0ff;
+        }
+        @media (max-width: 700px) {
+            /* Hide top nav, show bottom nav */
+            header nav { display: none; }
+            .bottom-navbar {
+                display: flex;
+            }
+            body {
+                padding-bottom: 62px; /* Prevent content from hiding under nav */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">📱 Aljeel mobiles</div>
+        <nav aria-label="Main Navigation">
+            <a href="#hero">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#services-section">Repair Services</a>
+            <a href="#contact-section">Contact</a>
+            <span class="cart-icon" title="View Cart">🛒</span>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <h1>Buy the Latest Phones or Get Yours Repaired — Fast & Affordable!</h1>
+        <p>Your one-stop shop for mobile phones and expert repair services. Trusted by thousands for fast, quality repairs and genuine devices.</p>
+        <div class="hero-btns">
+            <a href="https://wa.me/971503135437" target="_blank" rel="noopener noreferrer">Shop New Phones</a>
+            <a href="https://wa.me/971503135437" target="_blank" rel="noopener noreferrer">Book Repair Service</a>
+        </div>
+        <!-- Brand Logos -->
+        <div class="brands">
+            <div class="brand-logo" title="Samsung">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" width="50">
+            </div>
+            <div class="brand-logo" title="Apple">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" width="50">
+            </div>
+            <div class="brand-logo" title="Xiaomi">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg" alt="Xiaomi" width="50">
+            </div>
+            <div class="brand-logo" title="Oppo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Oppo_logo_2019.svg" alt="Oppo" width="50">
+            </div>
+            <div class="brand-logo" title="Vivo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Vivo_logo_2019.svg" alt="Vivo" width="50">
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section (Placeholder) -->
+    <section class="shop-section" id="shop">
+        <div class="shop-title">Shop Our Latest Phones</div>
+        <div class="shop-placeholder">
+            Our online shop is coming soon! For now, contact us on WhatsApp to get the best deals on the latest smartphones.
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services-section">
+        <div class="services-title">Our Top Services</div>
+        <div class="services-grid">
+            <div class="service-card" style="--i:0">
+                <div class="service-icon">💥</div>
+                <div class="service-title">Cracked Screen Repair</div>
+                <div class="service-desc">Fast replacement with genuine glass. Restore your phone's look and touch instantly.</div>
+            </div>
+            <div class="service-card" style="--i:1">
+                <div class="service-icon">🔋</div>
+                <div class="service-title">Battery Replacement</div>
+                <div class="service-desc">Get longer battery life with our premium replacements for all major brands.</div>
+            </div>
+            <div class="service-card" style="--i:2">
+                <div class="service-icon">🔌</div>
+                <div class="service-title">Charging Port Repair</div>
+                <div class="service-desc">Solve charging issues and faulty ports. Quick diagnostics and genuine spares.</div>
+            </div>
+            <div class="service-card" style="--i:3">
+                <div class="service-icon">⚙️</div>
+                <div class="service-title">Software Updates</div>
+                <div class="service-desc">Stay updated and secure. We install latest OS versions and fix software glitches.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials-section">
+        <div class="testimonials-title">What Our Customers Say</div>
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Super quick screen replacement. My phone feels brand new. Highly recommended!"</div>
+                <div class="author">Priya S.</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Amazing service and genuine products. Bought a phone here and got a great deal!"</div>
+                <div class="author">Rahul M.</div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Battery was changed in 20 minutes. Friendly staff and transparent pricing."</div>
+                <div class="author">Fatima K.</div>
+            </div>
+        </div>
+        <div class="testimonial-nav">
+            <div class="testimonial-dot active"></div>
+            <div class="testimonial-dot"></div>
+            <div class="testimonial-dot"></div>
+        </div>
+    </section>
+
+    <!-- Pop-up Offer -->
+    <div class="popup-offer" id="popup-offer">
+        Special Offer! Get 10% off on your first repair.
+        <button class="close-offer" onclick="document.getElementById('popup-offer').style.display='none';">&times;</button>
+    </div>
+<!-- WhatsApp Floating Button -->
+    <a class="whatsapp-float" href="https://wa.me/971503135437" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+        <svg width="33" height="33" viewBox="0 0 32 32">
+            <circle cx="16" cy="16" r="16" fill="#25d366"/>
+            <path d="M8 24l1.5-5.5A7 7 0 1 1 24 16a6.98 6.98 0 0 1-7 7c-1.2 0-2.33-.28-3.32-.78L8 24z" fill="#fff"/>
+            <path d="M22 18.5c-.2-.1-1.17-.57-1.35-.63-.18-.07-.32-.1-.46.1-.13.18-.52.63-.64.77-.12.13-.23.15-.42.05a5.6 5.6 0 0 1-1.65-1.03 6.1 6.1 0 0 1-1.14-1.41c-.12-.2 0-.3.09-.4.1-.1.18-.23.28-.36.1-.13.09-.23.01-.36-.07-.12-.46-1.1-.63-1.51-.16-.38-.32-.32-.46-.33h-.4c-.13 0-.33.05-.5.23-.16.18-.66.65-.66 1.6 0 .95.68 1.87.78 2 .09.12 1.32 2.07 3.2 2.83.45.16.8.25 1.07.32.45.11.86.09 1.19.06.36-.03 1.17-.48 1.33-.95.16-.47.16-.88.12-.97-.05-.09-.18-.13-.38-.22z" fill="#25d366"/>
+        </svg>
+    </a>
+<!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#shop">Shop</a>
+                    <a href="#services-section">Repair Services</a>
+                    <a href="#hero">About Us</a>
+                    <a href="#contact-section">Contact</a>
+                    <a href="#faq-section">FAQs</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <div class="footer-links">
+                    <span>📞 +971 50 313 5437</span>
+                </div>
+                <section class="contact-section" id="contact-section">
+                    <h3>Find Us</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps?q=25.2753,55.3081&z=15&output=embed"
+                            width="100%"
+                            height="320"
+                            style="border:0; border-radius:12px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Aljeel Mobiles Location"
+                        ></iframe>
+                    </div>
+                    <div class="shop-address">
+                        <strong>Our Address:</strong><br>
+                        78G5+46H Dubai - United Arab Emirates
+                    </div>
+                </section>
+                <div class="footer-socials">
+                    <a href="#" title="Facebook" target="_blank" rel="noopener noreferrer">🌐</a>
+                    <a href="https://wa.me/971503135437" target="_blank" rel="noopener noreferrer" title="WhatsApp">🟢</a>
+                    <a href="#" title="Instagram" target="_blank" rel="noopener noreferrer">📸</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Aljeel Mobiles. All rights reserved.
+        </div>
+    </footer>
+  
+    <!-- Bottom Mobile Navbar -->
+    <nav class="bottom-navbar" aria-label="Mobile Navigation">
+        <a href="#hero">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v9.5A2.5 2.5 0 0 1 18.5 22h-13A2.5 2.5 0 0 1 3 19.5V10z" stroke="#1976d2" stroke-width="2"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="#shop">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13L3 2H1" stroke="#1976d2" stroke-width="2"/></svg>
+            <span>Shop</span>
+        </a>
+        <a href="#services-section">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="#1976d2" stroke-width="2"/></svg>
+            <span>Repair</span>
+        </a>
+        <a href="#contact-section">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8.5M12 12V3" stroke="#1976d2" stroke-width="2"/></svg>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- JS for testimonials and service animation -->
+    <script>
+    // Testimonials slider logic
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let current = 0;
+    function showTestimonial(idx) {
+        testimonials.forEach((t, i) => t.classList.toggle('active', i === idx));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        current = idx;
+    }
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => showTestimonial(idx));
+    });
+    setInterval(() => showTestimonial((current + 1) % testimonials.length), 6000);
+
+    // Animate service cards on scroll
+    const serviceCards = document.querySelectorAll('.service-card');
+    function animateServices() {
+        serviceCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 80) {
+                card.classList.add('animated');
+            }
+        });
+    }
+    window.addEventListener('scroll', animateServices);
+    window.addEventListener('load', animateServices);
+    </script>
+</body>
+</html>
